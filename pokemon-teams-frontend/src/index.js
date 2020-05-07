@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function fetchTrainers() {
     return fetch(TRAINERS_URL)
     .then(resp => resp.json())
-    .then(json => trainers(json)) 
+    .then(json => trainers(json))
 }
 
 function trainers(json) {
@@ -28,7 +28,7 @@ function trainers(json) {
         p.innerHTML = `${trainer['attributes']["name"]}`;
         const button = document.createElement('button')
         button.innerHTML = "Add Pokemon";
-        button.setAttribute("data-trainer-id", `${trainer['id']}`)        
+        button.setAttribute("data-trainer-id", `${trainer['id']}`)
         const ul = document.createElement('ul');
         button.addEventListener("click", function() {addPokemon(trainer['id'])});
         div.appendChild(p);
@@ -41,7 +41,7 @@ function trainers(json) {
 function fetchPokemon() {
     fetch(POKEMONS_URL)
     .then(resp => resp.json())
-    .then(json => pokemon(json)) 
+    .then(json => pokemon(json))
 }
 
 function pokemon(json) {
@@ -53,7 +53,7 @@ function pokemon(json) {
         let button = document.createElement('button');
         button.innerHTML = "Release";
         button.className = "release";
-        button.setAttribute("data-pokemon-id", `${pokemon['id']}`)        
+        button.setAttribute("data-pokemon-id", `${pokemon['id']}`)
         button.addEventListener("click", function() {deletePokemon(pokemon['id'])});
         li.appendChild(button);
         ul.appendChild(li);
@@ -95,7 +95,7 @@ function addAPokemon(json) {
         let button = document.createElement('button');
         button.innerHTML = "Release";
         button.className = "release";
-        button.setAttribute("data-pokemon-id", `${json['data']['id']}`)        
+        button.setAttribute("data-pokemon-id", `${json['data']['id']}`)
         button.addEventListener("click", function() {deletePokemon(json['data']['id'])});
         li.appendChild(button);
         ul.appendChild(li);
